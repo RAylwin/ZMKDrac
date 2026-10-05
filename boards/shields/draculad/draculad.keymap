@@ -76,8 +76,8 @@
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
- &kp Q   &kp W   &kp F   &kp P   &kp B     &kp J   &kp L   UE      &kp Y   &kp SEMI    
- AE      &hm AR  &hm SS  &hm CT  &kp G     &kp M   &hm CN  &hm SE  &hm AI  &kp OE 
+ &kp Q   &kp W   &kp F   &kp P   &kp B     &kp J   &kp L   &UE     &kp Y   &kp SEMI    
+ &AE     &hm AR  &hm SS  &hm CT  &kp G     &kp M   &hm CN  &hm SE  &hm AI  &OE 
  &kp Z   &kp X   &kp C   &kp D   &kp V     &kp K   &kp H   &kp CM  &kp DOT &kp RET 
          &kp M   &kp LGI &kp BS  &mo 1     &mo 2   &kp SP  &kp ESC &kp N
                         >;
