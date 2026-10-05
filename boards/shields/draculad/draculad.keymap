@@ -12,17 +12,17 @@
 #define SS LSHFT S
 #define CT LCTRL T
 
-#define A2 LALT 2
-#define S3 LSHFT 3
-#define C4 LCTRL 4
+#define A2 LALT N2
+#define S3 LSHFT N3
+#define C4 LCTRL N4
 
 #define AI RALT I
 #define SE RSHFT E
 #define CN RCTRL N
 
-#define A9 RALT 9
-#define S8 RSHFT 8
-#define C7 RCTRL 7
+#define A9 RALT N9
+#define S8 RSHFT N8
+#define C7 RCTRL N7
 
 #define LGI LGUI
 #define BS BSPC
