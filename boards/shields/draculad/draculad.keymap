@@ -24,7 +24,7 @@
 #define S8 RSHFT 8
 #define C7 RCTRL 7
 
-#define LG LGUI
+#define LGI LGUI
 #define BS BSPC
 #define CM COMMA
 #define SP SPACE
@@ -79,7 +79,7 @@
  &kp Q   &kp W   &kp F   &kp P   &kp B     &kp J   &kp L   UE      &kp Y   &kp SEMI    
  AE      &hm AR  &hm SS  &hm CT  &kp G     &kp M   &hm CN  &hm SE  &hm AI  &kp OE 
  &kp Z   &kp X   &kp C   &kp D   &kp V     &kp K   &kp H   &kp CM  &kp DOT &kp RET 
-         &kp M   &kp LG  &kp BS  &mo 1     &mo 2   &kp SP  &kp ESC &kp N
+         &kp M   &kp LGI &kp BS  &mo 1     &mo 2   &kp SP  &kp ESC &kp N
                         >;
  sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 
