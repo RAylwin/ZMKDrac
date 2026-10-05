@@ -2,6 +2,33 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
+
+#define B0 BT_SEL 0
+#define B1 BT_SEL 1
+#define B2 BT_SEL 2
+#define BC BT_CLR
+
+#define AR LALT R
+#define SS LSHFT S
+#define CT LCTRL T
+
+#define A2 LALT 2
+#define S3 LSHFT 3
+#define C4 LCTRL 4
+
+#define AI RALT I
+#define SE RSHFT E
+#define CN RCTRL N
+
+#define A9 RALT 9
+#define S8 RSHFT 8
+#define C7 RCTRL 7
+
+#define LG LGUI
+#define BS BSPC
+#define CM COMMA
+#define SP SPACE
+
 / {
 
         behaviors {
@@ -14,6 +41,30 @@
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
+        AE: AE {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp A>, <&kp RA(Q)>;
+            mods = <(MOD_RALT)>;
+        };
+        OE: OE {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp O>, <&kp RA(P)>;
+            mods = <(MOD_LALT)>;
+        };
+        UE: UE {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp U>, <&kp RA(Y)>;
+            mods = <(MOD_LALT)>;
+        };
+        SZ: SZ {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp S>, <&kp RA(S)>;
+            mods = <(MOD_LALT)>;
+        };
         };
         keymap {
                 compatible = "zmk,keymap";
@@ -25,12 +76,12 @@
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
- &kp Q &kp W      &kp F    &kp P    &kp B   &kp J &kp L      &kp U     &kp Y   &kp SEMI    
- &kp A &hm LALT R      &hm LSHFT S    &hm LCTRL T    &kp G   &kp M &hm LCTRL N      &hm LSHFT E     &hm LALT I   &kp O 
- &kp Z &kp X      &kp C    &kp D    &kp V   &kp K &kp H      &kp COMMA &kp DOT &kp RET 
-       &kp M &kp LGUI &kp BSPC &mo 1   &mo 2 &kp SPACE  &kp ESC   &kp N
+ &kp Q   &kp W   &kp F   &kp P   &kp B     &kp J   &kp L   UE      &kp Y   &kp SEMI    
+ AE      &hm AR  &hm SS  &hm CT  &kp G     &kp M   &hm CN  &hm SE  &hm AI  &kp OE 
+ &kp Z   &kp X   &kp C   &kp D   &kp V     &kp K   &kp H   &kp CM  &kp DOT &kp RET 
+         &kp M   &kp LG  &kp BS  &mo 1     &mo 2   &kp SP  &kp ESC &kp N
                         >;
-                        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+ sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 
                 };
                 lower_layer {
@@ -40,10 +91,10 @@
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-&kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR 
-&kp N1   &hm LALT N2 &hm LSHFT N3 &hm LCTRL N4 &kp N5      &kp N6   &hm LCTRL N7    &hm LSHFT N8    &hm LALT N9   &kp N0 
-&bt BT_SEL 0  &bt BT_SEL 1  &trans  &trans  &trans       &trans    &trans    &trans    &trans   &trans 
-         &trans &soft_off   &bt BT_CLR   &trans      &trans    &trans    &trans  &trans
+&kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR 
+&kp N1    &hm A2  &hm S3    &hm C4    &kp N5      &kp N6     &hm C7    &hm S8     &hm A9    &kp N0 
+&bt B0    &bt B1  &bt B2    &trans    &trans      &trans     &kp RA(S) &trans     &trans    &trans 
+          &trans  &soft_off &bt BC    &trans      &trans     &trans    &trans     &trans
                         >;
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
@@ -55,10 +106,10 @@
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-&kp EXCL &kp SQT &kp LBRC   &kp RBRC   &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR  &kp RPAR 
-&kp TAB   &trans &hm LSHFT LBKT   &hm LCTRL RBKT   &trans      &kp MINUS &hm LCTRL PLUS  &hm LSHFT EQUAL &hm LALT MINUS &kp BSLH 
-&kp GRAVE   &kp TILDE &kp LPAR  &kp RPAR   &trans      &kp UNDER &kp ASTRK &kp FSLH  &kp RBRC  &kp PIPE
-         &trans &trans     &trans     &trans      &trans    &trans    &trans    &trans
+&kp EXCL   &kp SQT    &kp LBRC        &kp RBRC        &kp PRCNT      &kp CARET  &kp AMPS        &kp ASTRK        &kp LPAR        &kp RPAR
+&kp TAB    &trans     &hm LSHFT LBKT  &hm LCTRL RBKT  &trans         &kp MINUS  &hm LCTRL PLUS  &hm LSHFT EQUAL  &hm LALT MINUS  &kp BSLH
+&kp GRAVE  &kp TILDE  &kp LPAR        &kp RPAR        &trans         &kp UNDER  &kp ASTRK       &kp FSLH         &kp RBRC        &kp PIPE
+           &trans     &trans          &trans          &trans         &trans     &trans          &trans           &trans
                         >;
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
