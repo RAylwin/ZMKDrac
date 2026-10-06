@@ -66,67 +66,53 @@
             mods = <(MOD_LALT)>;
         };
         };
-        keymap {
-                compatible = "zmk,keymap";
+keymap {
+compatible = "zmk,keymap";
 
 default_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
+// -------------------------------------------------------------------
+// |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L  | U/Ü |  Y  |  ;  |
+// | A/Ä |  R  |  S  |  T  |  G  |   |  M  |  N  |  E  |  I  | O/Ö |
+// |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H  |  ,  |  .  | ENT |
+//       |     | GUI | BSPC| LWR |   | RSE | SPC | ESC |     |
+bindings = <
  &kp Q   &kp W   &kp F   &kp P   &kp B     &kp J   &kp L   &UE     &kp Y   &kp SEMI    
  &AE     &hm AR  &hm SS  &hm CT  &kp G     &kp M   &hm CN  &hm SE  &hm AI  &OE 
  &kp Z   &kp X   &kp C   &kp D   &kp V     &kp K   &kp H   &kp CM  &kp DOT &kp RET 
-         &kp M   &kp LGI &kp BS  &mo 1     &mo 2   &kp SP  &kp ESC &kp N
-                        >;
- sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-                };
+         &none   &kp LGI &kp BS  &mo 1     &mo 2   &kp SP  &kp ESC &none
+>;
+sensor-bindings = <
+&inc_dec_kp C_VOL_UP C_VOL_DN>;
+};
 
 lower_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-&kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR 
-&kp N1    &hm A2  &hm S3    &hm C4    &kp N5      &kp N6     &hm C7    &hm S8     &hm A9    &kp N0 
-&bt B0    &bt B1  &bt B2    &trans    &trans      &trans     &kp RA(S) &trans     &trans    &trans 
-          &trans  &soft_off &bt BC    &trans      &mo 3     &trans    &trans     &trans
-                        >;
-                        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-                };
-
-raise_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-&kp EXCL   &kp SQT    &kp LBRC        &kp RBRC        &kp PRCNT      &kp CARET  &kp AMPS        &kp ASTRK        &kp LPAR        &kp RPAR
-&kp TAB    &trans     &hm LSHFT LBKT  &hm LCTRL RBKT  &trans         &kp MINUS  &hm LCTRL PLUS  &hm LSHFT EQUAL  &hm LALT MINUS  &kp BSLH
-&kp GRAVE  &kp TILDE  &kp LPAR        &kp RPAR        &trans         &kp UNDER  &kp ASTRK       &kp FSLH         &kp RBRC        &kp PIPE
-           &trans     &trans          &mo 3          &trans         &trans     &trans          &trans           &trans
-                        >;
-                        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-                };
+// -------------------------------------------------------------------
+// |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |
+// |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |
+// | CAPS| CALC| HOME| END | MUTE|   |  <  |  >  |  ?  |  "  |  :  |
+//       |     |     |     |     |   | ADJ |     |     |     |
+bindings = <
+&kp EXCL  &kp AT         &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR
+&kp N1    &hm A2         &hm S3    &hm C4    &kp N5      &kp N6     &hm C7    &hm S8     &hm A9    &kp N0
+&kp CAPS  &kp C_AL_CALC  &kp HOME  &kp END   &kp C_MUTE  &kp LT     &kp GT    &kp QMARK  &kp DQT   &kp COLON
+          &none          &none     &none     &trans      &mo 3      &none     &none      &none
+>;
+sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+};
 
 adjust_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// -------------------------------------------------------------------
+// |  F1 |  F2 |  F3 |  F4 |  F5 |   |  F6 |  F7 |  F8 |  F9 | F10 |
+// |     |     | VOL-| VOL+| MUTE|   |     | BRI-| BRI+| F11 | F12 |
+// | BT0 | BT1 | BT2 | TASK| BTCL|   |     |     |     |     |     |
+//       |     |     |     |     |   |     |     |     |     |
                         bindings = <
-&kp EXCL   &kp SQT    &kp LBRC        &kp RBRC        &kp PRCNT      &kp CARET  &kp AMPS        &kp ASTRK        &kp LPAR        &kp RPAR
-&kp TAB    &trans     &hm LSHFT LBKT  &hm LCTRL RBKT  &trans         &kp MINUS  &hm LCTRL PLUS  &hm LSHFT EQUAL  &hm LALT MINUS  &kp BSLH
-&kp GRAVE  &kp TILDE  &kp LPAR        &kp RPAR        &kp N8         &kp UNDER  &kp ASTRK       &kp FSLH         &kp RBRC        &kp PIPE
-           &trans     &trans          &trans          &trans         &trans     &trans          &trans           &trans
-                        >;
-                        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-                };
-        };
+&kp F1        &kp F2        &kp F3        &kp F4           &kp F5      &kp F6  &kp F7        &kp F8        &kp F9   &kp F10
+&none         &none         &kp C_VOL_DN  &kp C_VOL_UP     &kp C_MUTE  &none   &kp C_BRI_DN  &kp C_BRI_UP  &kp F11  &kp F12
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &kp LC(LA(TAB))  &bt BT_CLR  &none   &none         &none         &none    &none
+              &none         &none         &none            &trans      &trans  &none         &none         &none
+>;
+sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+};
+};
 };
