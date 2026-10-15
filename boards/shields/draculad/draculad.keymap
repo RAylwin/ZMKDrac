@@ -103,12 +103,12 @@ raise_layer {
 // -------------------------------------------------------------------
 // |  !  |  '  |  {  |  }  |  %  |   |  ^  |  &  |  *  |  (  |  )  |
 // | TAB |     |  [  |  ]  |     |   |  -  |  +  |  =  |  -  |  \  |
-// |  `  |  ~  |  (  |  )  |     |   |  _  |  *  |  /  |  }  | "|" |
+// |  `  |  ~  |  (  |  )  |     |   |  _  |  *  |  /  |  }  | ENT |
 //       |     |     |     | ADJ |   |     |     |     |     |
                         bindings = <
 &kp EXCL   &kp SQT    &kp LBRC        &kp RBRC        &kp PRCNT      &kp CARET  &kp AMPS        &kp ASTRK        &kp LPAR        &kp RPAR
 &kp TAB    &none      &hm LSHFT LBKT  &hm LCTRL RBKT  &none          &kp MINUS  &hm LCTRL PLUS  &hm LSHFT EQUAL  &hm LALT MINUS  &kp BSLH
-&kp GRAVE  &kp TILDE  &kp LPAR        &kp RPAR        &none          &kp UNDER  &kp ASTRK       &kp FSLH         &kp RBRC        &kp PIPE
+&kp GRAVE  &kp TILDE  &kp LPAR        &kp RPAR        &none          &kp UNDER  &kp ASTRK       &kp FSLH         &kp RBRC        &trans
            &none      &none           &none           &mo 3          &trans     &none           &none            &none 
 >;
 };
